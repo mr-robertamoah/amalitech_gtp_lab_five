@@ -2,7 +2,14 @@
 
 # Automatic File Sorter Script
 # This script sorts files in the current directory into subdirectories based on their file types.
-# Usage: ./automatic_file_sorter.sh
+# Usage: ./automatic_file_sorter.sh <directory:optional>
+
+# Check if a directory is provided as an argument and change to that directory otherwise use the current directory
+if [ $# -eq 1 ]; then
+    cd "$1" || { echo "Directory not found"; exit 1; }
+else
+    cd "$(pwd)" || { echo "Current directory not found"; exit 1; }
+fi
 
 # Function to create a directory if it doesn't exist
 create_directory() {
