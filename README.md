@@ -28,18 +28,19 @@ chmod +x scripts/*.sh
 ## 1. Automatic File Sorter (`automatic_file_sorter.sh`)
 
 **Description:**  
-Automatically sorts files in the current directory into subdirectories based on their file types. It organizes files into folders such as Images, Documents, Videos, Audio, Archives, and Others.
+Automatically sorts files in the current directory or a specified directory into subdirectories based on their file types. It organizes files into folders such as Images, Documents, Videos, Audio, Archives, and Others.
 
 **Usage:**  
 ```bash
-./automatic_file_sorter.sh
+./automatic_file_sorter.sh [directory]
 ```
+- `directory` (optional): The directory to sort files in. If not provided, the script sorts files in the current directory.
 
 **What to Expect:**  
 - The script creates directories for different file types if they do not exist.
 - Moves files into their respective directories based on file extensions.
 - Prints messages indicating which files were moved and to where.
-- No options are available; it always operates on the current directory.
+- If a directory argument is provided, the script sorts files in that directory; otherwise, it sorts files in the current directory.
 
 ---
 
