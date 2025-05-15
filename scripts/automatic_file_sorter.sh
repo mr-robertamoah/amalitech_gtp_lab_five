@@ -31,39 +31,30 @@ move_files() {
         fi
     done
 }
-# Create directories for different file types
-create_directory "Images"
-create_directory "Documents"
-create_directory "Videos"
-create_directory "Audio"
-create_directory "Archives"
-create_directory "Others"
+# Define directories and their associated file extensions
+declare -A file_types
+file_types=(
+    ["Images"]="jpg jpeg png gif bmp"
+    ["Documents"]="txt pdf doc docx xls xlsx ppt pptx"
+    ["Videos"]="mp4 mkv avi mov"
+    ["Audio"]="mp3 wav flac"
+    ["Archives"]="zip tar gz rar 7z"
+)
+
+# Create directories
+for dir in "${!file_types[@]}"; do
+    create_directory "$dir"
+done
+
 # Move files to the appropriate directories
-move_files "jpg" "Images"
-move_files "jpeg" "Images"
-move_files "png" "Images"
-move_files "gif" "Images"
-move_files "bmp" "Images"
-move_files "txt" "Documents"
-move_files "pdf" "Documents"
-move_files "doc" "Documents"
-move_files "docx" "Documents"
-move_files "xls" "Documents"
-move_files "xlsx" "Documents"
-move_files "ppt" "Documents"
-move_files "pptx" "Documents"
-move_files "mp4" "Videos"
-move_files "mkv" "Videos"
-move_files "avi" "Videos"
-move_files "mov" "Videos"
-move_files "mp3" "Audio"
-move_files "wav" "Audio"
-move_files "flac" "Audio"
-move_files "zip" "Archives"
-move_files "tar" "Archives"
-move_files "gz" "Archives"
-move_files "rar" "Archives"
-move_files "7z" "Archives"
+for dir in "${!file_types[@]}"; do
+    for ext in ${file_types[$dir]}; do
+        move_files "$ext" "$dir"
+    done
+done
+
+# Create Others directory
+create_directory "Others"
 # Move any other files to the "Others" directory
 for file in *; do
     if [ -f "$file" ]; then
