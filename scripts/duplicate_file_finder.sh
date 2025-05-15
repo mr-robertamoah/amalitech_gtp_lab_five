@@ -1,10 +1,9 @@
 #!/bin/bash
 # Duplicate File Finder Script
-# Make a script to find and list duplicate files in a folder. Use file size and content
-# comparison to spot duplicates and offer choices to delete or move them.
-# Skills: File comparison, hashing, arrays, user interaction
+
 # Usage: ./duplicate_file_finder.sh <directory>
 # Example: ./duplicate_file_finder.sh /path/to/directory
+
 # Function to find duplicate files in a directory
 find_duplicates() {
     dir=$1

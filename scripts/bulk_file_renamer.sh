@@ -1,10 +1,9 @@
 #!/bin/bash
-# Automatic File Renamer Script
-# Build a tool to rename many files using patterns or rules. Let users specify naming
-# conventions, add prefixes or suffixes, and use counters or dates in filenames.
-# Skills: Loops, regular expressions, command-line inputs, string formatting
+# Bulk File Renamer Script
+
 # Usage: ./bulk_file_renamer.sh <directory> <pattern> <new_name>
 # Example: ./bulk_file_renamer.sh /path/to/directory "file_*.txt" "new_file_"
+
 # Function to rename files based on a pattern
 rename_files() {
     dir=$1

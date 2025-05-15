@@ -1,10 +1,9 @@
 #!/bin/bash
 # Disk Space Analyzer Script
-# Write a tool to show which folders and files use the most space. Create a tree-like
-# structure to display disk usage and offer options to sort and filter results.
-# Skills: Recursion, data sorting, output formatting, data visualization
+
 # Usage: ./disk_space_analyzer.sh <directory> [options]
 # Example: ./disk_space_analyzer.sh /path/to/directory --sort-by-size --filter-by-type txt
+
 # Function to display usage information
 usage() {
     echo "Usage: $0 <directory>"

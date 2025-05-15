@@ -1,10 +1,9 @@
 #!/bin/bash
 # File Encryption Tool Script
-# Create a script to encrypt and decrypt files using a password. Implement a safe
-# encryption method and handle key management securely.
-# Skills: Cryptography basics, input/output redirection, secure coding
+
 # Usage: ./file_encryption_tool.sh <encrypt|decrypt> <file>
 # Example: ./file_encryption_tool.sh encrypt myfile.txt
+
 # Function to encrypt a file
 encrypt_file() {
     file=$1

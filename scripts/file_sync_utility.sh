@@ -1,10 +1,9 @@
 #!/bin/bash
 # File Synchronization Utility Script
-# Develop a program to keep files in sync between two folders. Implement two-way
-# synchronization and handle conflict resolution.
-# Skills: File comparison, error handling, logging, conflict management
+
 # Usage: ./file_sync_utility.sh <source_directory> <destination_directory> [options]
 # Example: ./file_sync_utility.sh /path/to/source /path/to/destination --sync
+
 # Function to display usage information
 usage() {
     echo "Usage: $0 <source_directory> <destination_directory> [options]"

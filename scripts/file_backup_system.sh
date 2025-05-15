@@ -1,10 +1,9 @@
 #!/bin/bash
 # File Backup System Script
-# Develop a program to back up important files to another place. Include options for full
-# and partial backups, compression, and scheduling.
-# Skills: File copying, date/time handling, scheduling, compression methods
+
 # Usage: ./file_backup_system.sh <source_directory> <backup_directory> [options]
 # Example: ./file_backup_system.sh /path/to/source /path/to/backup --full --compress
+
 # Function to display usage information
 usage() {
     echo "Usage: $0 <source_directory> <backup_directory> [options]"
