@@ -67,14 +67,35 @@ schedule_backup() {
         echo "Source directory $src does not exist."
         exit 1
     fi
+
+    # Prompt user for cron schedule entries
+    echo "Enter the minute (0-59) for the cron schedule:"
+    read minute
+    echo "Enter the hour (0-23) for the cron schedule:"
+    read hour
+    echo "Enter the day of month (1-31) for the cron schedule:"
+    read day_of_month
+    echo "Enter the month (1-12) for the cron schedule:"
+    read month
+    echo "Enter the day of week (0-7, 0 or 7 is Sunday) for the cron schedule:"
+    read day_of_week
+
+    # Validate inputs and set defaults if empty
+    minute=${minute:-0}
+    hour=${hour:-2}
+    day_of_month=${day_of_month:-*}
+    month=${month:-*}
+    day_of_week=${day_of_week:-*}
+
     # Build options string for cron job
     opts=""
     for opt in "${options[@]}"; do
         opts+=" $opt"
     done
-    # Create a cron job for daily backup at 2 AM with provided options
-    (crontab -l 2>/dev/null; echo "0 2 * * * $0 $src $dest$opts") | crontab -
-    echo "Backup scheduled daily at 2 AM with options:$opts"
+
+    # Create a cron job with user-defined schedule
+    (crontab -l 2>/dev/null; echo "$minute $hour $day_of_month $month $day_of_week $0 $src $dest$opts") | crontab -
+    echo "Backup scheduled with cron schedule: $minute $hour $day_of_month $month $day_of_week and options:$opts"
 }
 # Check if the correct number of arguments is provided
 if [ "$#" -lt 2 ]; then
